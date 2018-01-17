@@ -1,5 +1,3 @@
-# Systemd unit file for <%= @instance %>
-
 [Unit]
 Description=memcached instance <%= @instance %>
 After=network.target
@@ -10,9 +8,6 @@ LimitNOFILE=<%= @ulimit %>
 ExecStart=<%= @binary_path %> <%= @cli_options %>
 Restart=on-failure
 
-# Various security configurations from:
-# https://github.com/memcached/memcached/blob/master/scripts/memcached.service
-PrivateTmp=true
 ProtectSystem=full
 NoNewPrivileges=true
 PrivateDevices=true
